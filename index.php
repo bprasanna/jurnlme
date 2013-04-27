@@ -8,7 +8,7 @@
 <hr style="color:gray">
 <form method="post" action="auth.php">
 <input type="text" name="username" placeholder="Username" /><br>
-<input type="password" name="password" placeholder="Password" />
+<input type="password" name="password" placeholder="Password" /><br>
 <input type="submit" value="login" />
 </form>
 </body>
