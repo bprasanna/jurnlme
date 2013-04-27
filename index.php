@@ -1,11 +1,14 @@
 <html>
 <head>
 <title>Welcome</title>
-<body style="margin: 0px auto" >
+<link rel="stylesheet" type="text/css" media="all" href="decor.css">
+<link rel="stylesheet" type="text/css" media="handheld" href="decor.css">
+</head>
+<body>
 <?php 
   echo "jurnlme";
 ?>
-<hr style="color:gray">
+<hr>
 <form method="post" action="auth.php">
 <input type="text" name="username" placeholder="Username" /><br>
 <input type="password" name="password" placeholder="Password" /><br>
