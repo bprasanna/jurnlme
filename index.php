@@ -2,8 +2,8 @@
 <head>
 <title>Welcome</title>
 <meta content="width=device-width" />
-<link rel="stylesheet" type="text/css" media="all" href="decor.css">
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 480px)" href="mob.css">
+<link rel="stylesheet" type="text/css" media="all" href="decor.css" />
 </head>
 <body>
 <h3>jurnlme</hr>
