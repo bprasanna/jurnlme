@@ -1,9 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
 <head>
 <title>Welcome</title>
-<meta content="width=device-width" />
-<link rel="stylesheet" type="text/css" media="only screen and (max-width: 480px)" href="mob.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 <link rel="stylesheet" type="text/css" media="all" href="decor.css" />
+<link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
 </head>
 <body>
 <h3>jurnlme</hr>
