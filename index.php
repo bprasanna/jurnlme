@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Welcome</title>
-<body background-color:black>
+<body style="margin: 0px auto" >
 <?php 
   echo "jurnlme";
 ?>
