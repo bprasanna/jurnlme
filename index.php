@@ -1,13 +1,12 @@
 <html>
 <head>
 <title>Welcome</title>
+<meta content="width=device-width" />
 <link rel="stylesheet" type="text/css" media="all" href="decor.css">
-<link rel="stylesheet" type="text/css" media="handheld" href="decor.css">
+<link rel="stylesheet" type="text/css" media="only screen and (max-width: 767px)" href="mob.css">
 </head>
 <body>
-<?php 
-  echo "jurnlme";
-?>
+<h3>jurnlme</hr>
 <hr>
 <form method="post" action="auth.php">
 <input type="text" name="username" placeholder="Username" /><br>
