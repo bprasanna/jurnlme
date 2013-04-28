@@ -3,6 +3,8 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 $email = $_POST["email"];
 
+echo $username;
+
 require_once "phar://iron_cache.phar";
 $cache = new IronCache(array(
     'token' => 'Zn1zfHWzW0-CPRI5tQ3FjeIODMg',
