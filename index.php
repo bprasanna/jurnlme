@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
 </head>
 <body>
-<h3>jurnlme</hr>
+<h3>jurnlme</h3>
 <hr>
 <form method="post" action="auth.php">
 <input type="text" name="username" placeholder="Username" /><br>
