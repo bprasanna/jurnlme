@@ -12,7 +12,7 @@
 <form method="post" action="auth.php">
 <input type="text" name="username" placeholder="Username" /><br>
 <input type="password" name="password" placeholder="Password" /><br>
-<input type="submit" value="login" />
+<input type="submit" value="Login" />
 <a href="register.php">Register</a>
 </form>
 </body>

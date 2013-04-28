@@ -13,4 +13,10 @@ $res = $cache->put("username", $username);
 $res = $cache->put("password", $password);
 $res = $cache->put("username", $email);
 
+if ($res > 0) {
+   echo "Successfully registered";
+} else {
+   echo "Failed to register";
+}
+
 ?>
