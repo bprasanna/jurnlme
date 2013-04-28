@@ -11,12 +11,8 @@ $cache = new IronCache(array(
 
 $res = $cache->put("username", $username);
 $res = $cache->put("password", $password);
-$res = $cache->put("username", $email);
+$res = $cache->put("email", $email);
 
-if ($res > 0) {
-   echo "Successfully registered";
-} else {
-   echo "Failed to register";
-}
+echo '$res';
 
 ?>
