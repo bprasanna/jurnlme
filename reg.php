@@ -3,23 +3,25 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 $email = $_POST["email"];
 
-require_once "phar://iron_cache.phar";
-$cache = new IronCache(array(
-    'token' => 'Zn1zfHWzW0-CPRI5tQ3FjeIODMg',
-    'project_id' => '517d29c4ed3d762654000241'
-));
-
-$user = $cache->get("username");
-if($user->value == $username) {
-  echo "User already exists. Please use other username";
-  header("Location: http://murmuring-inlet-9551.herokuapp.com/register.php"); /* Redirect browser */
-  exit();
-} else {
-$res = $cache->put("username", $username);
-$res = $cache->put("password", $password);
-$res = $cache->put("email", $email);
-echo "Successfully registered.<a href=\"index.php\">Login</a>";
+function pg_connection_string_from_database_url() {
+  extract(parse_url($_ENV["murmuring-inlet-9551::yellow"]));
+  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
+
+
+$pg_conn = pg_connect(pg_connection_string_from_database_url());
+
+# Now let's use the connection for something silly just to prove it works:
+$result = pg_query($pg_conn, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
+
+print "<pre>\n";
+if (!pg_num_rows($result)) {
+  print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
+} else {
+  print "Tables in your database:\n";
+  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
+}
+print "\n";
 
 
 ?>
