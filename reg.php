@@ -5,13 +5,13 @@ $email = $_POST["email"];
 
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["murmuring-inlet-9551::yellow"]));
+echo $user;
+echo $pass;
+echo $host;
   return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
 
 
-echo $user;
-echo $pass;
-echo $host;
 
 
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
