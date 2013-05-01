@@ -9,6 +9,11 @@ function pg_connection_string_from_database_url() {
 }
 
 
+echo $user;
+echo $pass;
+echo $host;
+
+
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 # Now let's use the connection for something silly just to prove it works:
