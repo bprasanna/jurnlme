@@ -1,6 +1,5 @@
 <?php
 $un = $_SESSION['un'];
-echo $un;
 $uid = 0;
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["HEROKU_POSTGRESQL_YELLOW_URL"]));

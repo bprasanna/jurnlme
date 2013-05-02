@@ -1,5 +1,5 @@
 <?php
-  if(!($_SESSION['un'])) {
+  if(!isset($_SESSION['un'])) {
     flush();
     header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
   } else {
@@ -36,9 +36,9 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 $result = pg_query($pg_conn, "select j.je from j20111988 j, t18982 u where t.uid=u.id and u.un='$usern' order by ts desc");
 
 if (!pg_num_rows($result)) {
-  print("No notes added yet.\nFeel free add one anytime.");
+  print("No notes added yet.<br>Feel free add one anytime.");
 } else {
-   while ($row = pg_fetch_row($result)) { print("\n $row[0]\n"); }
+   while ($row = pg_fetch_row($result)) { print("<br> $row[0] <br>"); }
 }
 
 pg_close($pg_conn);
