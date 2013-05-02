@@ -18,7 +18,7 @@
 <span style="font-style:normal;font-weight:bold;font-size:16px"><?php print("$usern"); ?></span>
 <hr>
 <form method="post" action="add.php">
-<textarea rows="3" cols="30" name="notes" placeholder="Add your notes" /><br>
+<textarea rows="3" cols="30" name="notes" placeholder="Add your notes"></textarea><br>
 <input type="submit" value="Add" />
 <a href="logout.php">Logout</a>
 <hr>
@@ -37,7 +37,7 @@ $result = pg_query($pg_conn, "select j.je from j20111988 j, t18982 u where j.uid
 if (!pg_num_rows($result)) {
   print("No notes added yet.<br>Feel free to add one anytime.");
 } else {
-   while ($row = pg_fetch_row($result)) { print("<br> $row[0] <br>"); }
+   while ($row = pg_fetch_row($result)) { print("$row[0] <br>"); }
 }
 
 pg_close($pg_conn);
