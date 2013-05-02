@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
 </head>
 <body>
-<h3>jurnlme</h3>
+&nbsp;<h3><?php print("$_SESSION['un']"); ?></h3>
 <hr>
 <form method="post" action="add.php">
 <input type="textarea" name="notes" placeholder="Add your notes" /><br>
