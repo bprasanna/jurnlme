@@ -12,15 +12,15 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 echo $pg_con;
 # Now let's use the connection for something silly just to prove it works:
-$result = pg_query($pg_conn, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
+$result = pg_query($pg_conn, "select un from t18982 where un ilike '$username'");
 
 if (!pg_num_rows($result)) {
   $result = pg_query($pg_conn, "insert into t18982 values('$username','$password','$email'");
   print("Successfully registered. Please <a href=\"index.php\">Login</a>");
 } else {
   
-  print "Please select a different username. <a href=\"register.php\">Register</a>";
-while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
+  print "Username already exists. Please select a different username. <a href=\"register.php\">Register</a>";
+//while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
 
 ?>
