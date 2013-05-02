@@ -1,8 +1,9 @@
 <?php
   session_start();
-  if(isset($_SESSION['un'])) {
+  if (isset($_SESSION['un'])) {
+     $usern = $_SESSION['un'];
   } else {
-    header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
+     header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
   }
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
 </head>
 <body>
-&nbsp;<h3><?php print("$_SESSION['un']"); ?></h3>
+&nbsp;<h3><?php print("$usern"); ?></h3>
 <hr>
 <form method="post" action="add.php">
 <input type="textarea" name="notes" placeholder="Add your notes" /><br>
@@ -23,7 +24,6 @@
 <hr>
 <h4>Recently...</h4>
 <?php
-$usern = $_SESSION['un'];
 
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["HEROKU_POSTGRESQL_YELLOW_URL"]));
