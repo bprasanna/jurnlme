@@ -17,4 +17,6 @@ if (!pg_num_rows($result)) {
   header('Location: http://murmuring-inlet-9551.herokuapp.com/jurnl.php');
 }
 
+pg_close($pg_conn);
+
 ?>

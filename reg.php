@@ -19,4 +19,6 @@ if (!pg_num_rows($result)) {
   print "Username already exists. Please select a different username. <a href=\"register.php\">Register</a>";
 }
 
+pg_close($pg_conn);
+
 ?>
