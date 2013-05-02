@@ -15,7 +15,7 @@ if (!pg_num_rows($result)) {
   print("Invalid Credentials. Please <a href=\"index.php\">Login</a> again");
 } else {
   session_start();
-  $_SESSION['un'] = "$username";
+  $_SESSION['un'] = "'".$username."'";
   header('Location: http://murmuring-inlet-9551.herokuapp.com/home.php');
 }
 
