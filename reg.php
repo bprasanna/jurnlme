@@ -13,7 +13,7 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 $result = pg_query($pg_conn, "select un from t18982 where un ilike '$username'");
 
 if (!pg_num_rows($result)) {
-  $result = pg_query($pg_conn, "insert into t18982 values('$username','$password','$email')");
+  $result = pg_query($pg_conn, "insert into t18982(un,pa,em) values('$username','$password','$email')");
   print("Successfully registered. Please <a href=\"index.php\">Login</a>");
 } else {
   print "Username already exists. Please select a different username. <a href=\"register.php\">Register</a>";
