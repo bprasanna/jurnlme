@@ -1,8 +1,9 @@
 <?php
-  if(!isset($_SESSION['un'])) {
-    header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
-  } else {
+  session_start();
+  if(isset($_SESSION['un'])) {
     echo $_SESSION['un'];
+  } else {
+    header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
   }
 ?>
 <!DOCTYPE html>

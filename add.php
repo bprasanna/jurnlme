@@ -1,4 +1,5 @@
 <?php
+session_start();
 $un = '';
 if(!isset($_SESSION['un'])) {
     header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
