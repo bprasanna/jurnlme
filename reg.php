@@ -4,7 +4,7 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 
 function pg_connection_string_from_database_url() {
-  extract(parse_url($_ENV["murmuring-inlet-9551::yellow"]));
+  extract(parse_url($_ENV["DATABASE_URL"]));
 print "$user";
 print "$pass";
 print "$host";
