@@ -3,7 +3,7 @@
     flush();
     header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
   } else {
-    echo $_SESSION['un'];
+    echo "$_SESSION['un']";
   }
 ?>
 <!DOCTYPE html>
