@@ -4,16 +4,9 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 
 function pg_connection_string_from_database_url() {
-  extract(parse_url($_ENV["DATABASE_URL"]));
-print "$user";
-print "$pass";
-print "$host";
+  extract(parse_url($_ENV["HEROKU_POSTGRESQL_YELLOW_URL"]));
   return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
-
-echo $username;
-echo $password;
-echo $email;
 
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
