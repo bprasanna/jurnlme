@@ -1,5 +1,12 @@
 <?php
-$un = $_SESSION['un'];
+$un = '';
+if(!isset($_SESSION['un'])) {
+    flush();
+    header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
+  } else {
+    $un = $_SESSION['un'];
+  }
+echo "Logged user: $un";
 $uid = 0;
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["HEROKU_POSTGRESQL_YELLOW_URL"]));
