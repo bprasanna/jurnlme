@@ -18,7 +18,7 @@
 <span style="font-style:normal;font-weight:bold;font-size:16px"><?php print("$usern"); ?></span>
 <hr>
 <form method="post" action="add.php">
-<input type="textarea" name="notes" placeholder="Add your notes" /><br>
+<textarea rows="3" cols="30" name="notes" placeholder="Add your notes" /><br>
 <input type="submit" value="Add" />
 <a href="logout.php">Logout</a>
 <hr>
