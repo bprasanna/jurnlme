@@ -19,7 +19,7 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 echo $pg_con;
 # Now let's use the connection for something silly just to prove it works:
-$result = pg_query($pg_conn, "select un from t18982 where un ilike '$username'");
+$result = pg_query($pg_conn, "select un from t18982 where un like '$username'");
 
 if (!pg_num_rows($result)) {
   $result = pg_query($pg_conn, "insert into t18982 values('$username','$password','$email'");
