@@ -12,24 +12,18 @@ print "$host";
 }
 
 
-
-
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
 echo $pg_con;
 # Now let's use the connection for something silly just to prove it works:
-$result = pg_query($pg_conn, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
+$result = pg_query($pg_conn, "select un from t18982 where un='$username'");
 
-print "<pre>\n";
 if (!pg_num_rows($result)) {
-  print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
-  $result = pg_query($pg_conn, "create table 18982(un text, pw text, em text)");
-
+  $result = pg_query($pg_conn, "insert into t18982 values('$username','$password','$email'");
+  print("Successfully registered. Please <a href=\"index.php\">Login</a>");
 } else {
-  print "Tables in your database:\n";
-  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
+  
+  print "Please select a different username. <a href=\"register.php\">Register</a>";
 }
-print "\n";
-
 
 ?>
