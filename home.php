@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
 </head>
 <body>
-&nbsp;<h3><?php print("$usern"); ?></h3>
+<span style="font-style:normal;font-weight:bold;font-size:16px"><?php print("$usern"); ?></span>
 <hr>
 <form method="post" action="add.php">
 <input type="textarea" name="notes" placeholder="Add your notes" /><br>

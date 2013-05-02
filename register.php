@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
 </head>
 <body>
-&nbsp;<h3>Register</h3>
+<span style="font-style:normal;font-weight:bold;font-size:16px">Register</span>
 <hr>
 <form method="post" action="reg.php">
 <input type="text" name="username" placeholder="Username" /><br>
