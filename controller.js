@@ -101,7 +101,7 @@ function authenticate(){
                         if (res === 'failed') {
                            document.getElementById("notifications").innerHTML = "<span style=\"color:darkred\">Invalid Credentials. Please check entered details.</span>";
                         } else {
-                            window.location="'"+res+"'";
+                            location.reload();
                         }
     				} else {
     					alert("Error while retrieving data. Please try again.");
