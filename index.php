@@ -9,11 +9,11 @@
 <body>
 <span style="font-style:normal;font-weight:bold;font-size:16px">Login</span>
 <hr>
-<form method="post" action="auth.php">
-<input type="text" name="username" placeholder="Username" /><br>
-<input type="password" name="password" placeholder="Password" /><br>
-<input type="submit" value="Login" />
+<input type="text" id="username" placeholder="Username" /><br>
+<input type="password" id="password" placeholder="Password" /><br>
+<input type="submit" value="Login" onClick="return authenticate()"/>
+<div id="notifications"></div>
 <a href="register.php">Register</a>
-</form>
+<script src="controller.js"></script>
 </body>
 </html>
