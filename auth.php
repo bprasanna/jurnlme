@@ -16,7 +16,7 @@ if (!pg_num_rows($result)) {
 } else {
   session_start();
   $_SESSION['un'] = $username;
-  header('Location: http://murmuring-inlet-9551.herokuapp.com/home.php');
+  echo "http://murmuring-inlet-9551.herokuapp.com/home.php";
 }
 
 pg_close($pg_conn);

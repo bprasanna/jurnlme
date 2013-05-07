@@ -77,14 +77,14 @@ function authenticate(){
 
     //Evaluate the values
     if(trim12(uname)===''){
-    	document.getElementById("notifications").innerHTML ="Please enter username";
-    	document.getElementById("uname").focus();
+    	document.getElementById("notifications").innerHTML ="<span style=\"color:darkred\">Please enter username</span>";
+    	document.getElementById("username").focus();
     	return false;    	
     }
     
     if(trim12(pass)===''){
-    	document.getElementById("notifications").innerHTML = "Please enter password";
-    	document.getElementById("pass").focus();
+    	document.getElementById("notifications").innerHTML = "<span style=\"color:darkred\">Please enter password</span>";
+    	document.getElementById("password").focus();
     	return false;
     }
     //Clear the content page
@@ -98,8 +98,7 @@ function authenticate(){
     			if(xmlHttpSK.status == 200){
     				res = xmlHttpSK.responseText;
     				if(res!=null){
-                        document.getElementById("notifications").innerHTML = res;
-                        initializeDataTable();
+                        window.location="'"+res+"'";
     				} else {
     					alert("Error while retrieving data. Please try again.");
     					document.getElementById("notifications").innerHTML="&nbsp";
