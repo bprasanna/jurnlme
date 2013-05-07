@@ -95,10 +95,14 @@ function authenticate(){
     	xmlHttpSK.onreadystatechange=function(){
     		if (xmlHttpSK.readyState == 4)
     		{ 
-    			if(xmlHttpSK.status == 200){
+    			if (xmlHttpSK.status == 200){
     				res = xmlHttpSK.responseText;
-    				if(res!=null){
-                        window.location="'"+res+"'";
+    				if (res!=null){
+                        if (res === 'failed') {
+                           document.getElementById("notifications").innerHTML = "<span style=\"color:darkred\">Invalid Credentials. Please check entered details.</span>";
+                        } else {
+                            window.location="'"+res+"'";
+                        }
     				} else {
     					alert("Error while retrieving data. Please try again.");
     					document.getElementById("notifications").innerHTML="&nbsp";
