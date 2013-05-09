@@ -9,6 +9,7 @@
 <html>
 <head>
 <title>Welcome</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 <style>
 section
 {
@@ -20,8 +21,6 @@ padding:5px;
 overflow:hidden;
 }
 </style>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 <link rel="stylesheet" type="text/css" media="all" href="decor.css" />
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
 <script type="text/javascript">
@@ -66,9 +65,9 @@ $result = pg_query($pg_conn, "select j.je from j20111988 j, t18982 u where j.uid
 if (!pg_num_rows($result)) {
   print("No notes added yet.<br>Feel free to add one anytime.");
 } else {
-   print "<article>"
+   print ("<article>");
    while ($row = pg_fetch_row($result)) { print("<section>$row[0] </section>"); }
-   print "</article>"
+   print ("</article>");
 }
 
 pg_close($pg_conn);
