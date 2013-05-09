@@ -63,7 +63,7 @@ function pg_connection_string_from_database_url() {
 
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
-$result = pg_query($pg_conn, "select j.id, j.je from j20111988 j, t18982 u where j.uid=u.id and u.un='$usern' order by ts desc");
+$result = pg_query($pg_conn, "select j.jid, j.je from j20111988 j, t18982 u where j.uid=u.id and u.un='$usern' order by ts desc");
 
 if (!pg_num_rows($result)) {
   print("No notes added yet.<br>Feel free to add one anytime.");
