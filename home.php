@@ -49,7 +49,7 @@ alert('Gonna delete: '+id);
 <span style="font-style:normal;font-weight:bold;font-size:16px"><?php print("$usern"); ?></span>
 <hr>
 <form method="post" action="add.php">
-<textarea rows="3" cols="30" name="notes" placeholder="Add your notes"></textarea><br>
+<textarea rows="5" cols="42" name="notes" placeholder="Add your notes"></textarea><br>
 <input type="submit" value="Add" />
 <a href="logout.php">Logout</a>
 <hr>
@@ -69,7 +69,7 @@ if (!pg_num_rows($result)) {
   print("No notes added yet.<br>Feel free to add one anytime.");
 } else {
    print ("<article>");
-   while ($row = pg_fetch_row($result)) { print("<section ondblclick=\"onf(this.id)\" id=$row[0] contenteditable=true onblur=\"ono(this.id)\">$row[1] </section>"); }
+   while ($row = pg_fetch_row($result)) { print("<section onclick=\"onf(this.id)\" id=$row[0] contenteditable=true onblur=\"ono(this.id)\">$row[1] </section>"); }
    print ("</article>");
 }
 
