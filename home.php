@@ -23,6 +23,9 @@ overflow:hidden;
 </style>
 <link rel="stylesheet" type="text/css" media="all" href="decor.css" />
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
+<style>
+body { margin: 5px; }
+</style>
 <script type="text/javascript">
 var edic;
 function onf(id){
@@ -60,13 +63,13 @@ function pg_connection_string_from_database_url() {
 
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
-$result = pg_query($pg_conn, "select j.je from j20111988 j, t18982 u where j.uid=u.id and u.un='$usern' order by ts desc");
+$result = pg_query($pg_conn, "select j.id, j.je from j20111988 j, t18982 u where j.uid=u.id and u.un='$usern' order by ts desc");
 
 if (!pg_num_rows($result)) {
   print("No notes added yet.<br>Feel free to add one anytime.");
 } else {
    print ("<article>");
-   while ($row = pg_fetch_row($result)) { print("<section>$row[0] </section>"); }
+   while ($row = pg_fetch_row($result)) { print("<section id=$row[0] contenteditable=true>$row[1] </section>"); }
    print ("</article>");
 }
 
