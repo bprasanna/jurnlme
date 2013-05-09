@@ -69,7 +69,7 @@ if (!pg_num_rows($result)) {
   print("No notes added yet.<br>Feel free to add one anytime.");
 } else {
    print ("<article>");
-   while ($row = pg_fetch_row($result)) { print("<section id=$row[0] contenteditable=true>$row[1] </section>"); }
+   while ($row = pg_fetch_row($result)) { print("<section ondblclick=\"onf(this.id)\" id=$row[0] contenteditable=true onblur=\"ono(this.id)\">$row[1] </section>"); }
    print ("</article>");
 }
 
