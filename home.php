@@ -9,10 +9,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" itemscope itemtype="http://schema.org/Article">
 <head>
+<style>
+section
+{
+border-style:solid;
+border-width:1px;
+border-color:gray;
+margin:5px;
+padding:5px;
+overflow:hidden;
+}
+</style>
+
 <title>Welcome</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 <link rel="stylesheet" type="text/css" media="all" href="decor.css" />
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
+<script type="text/javascript">
+var edic;
+function onf(id){
+ edic = document.getElementById(id).innerHTML;
+}
+
+function ono(id){
+edic2 = document.getElementById(id).innerHTML;
+if(edic===edic2) {
+} else {
+alert("update:"+edic2);
+}
+}
+function del(id){
+alert('Gonna delete: '+id);
+}
+
+</script>
 </head>
 <body>
 <span style="font-style:normal;font-weight:bold;font-size:16px"><?php print("$usern"); ?></span>
@@ -37,7 +67,9 @@ $result = pg_query($pg_conn, "select j.je from j20111988 j, t18982 u where j.uid
 if (!pg_num_rows($result)) {
   print("No notes added yet.<br>Feel free to add one anytime.");
 } else {
-   while ($row = pg_fetch_row($result)) { print("$row[0] <br>"); }
+   print "<article>"
+   while ($row = pg_fetch_row($result)) { print("<section>$row[0] </section>"); }
+   print "</article>"
 }
 
 pg_close($pg_conn);
