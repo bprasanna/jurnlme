@@ -58,7 +58,7 @@ alert('Gonna delete: '+id);
 </form>
 <hr>
 <div id="notifications"></div>
-<b>Recently...</b><br>
+<b>Recently...</b><br><br>
 <div id="entries"></div>
 </body>
 </html>
