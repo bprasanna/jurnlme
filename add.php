@@ -24,7 +24,12 @@ if (!pg_num_rows($result)) {
 
 if ($uid != 0) {
    $notes = $_POST["notes"]; 
-   $result = pg_query($pg_conn, "insert into j20111988(je, uid) values('$notes', $uid)");
+   $stmt = $pg_conn->prepare("insert into j20111988(je, uid) values(:notes, :uid)");
+   $stmt->bindParam(':notes',$notes);
+   $stmt->bindParam(':uid',$uid);
+   
+   //$result = pg_query($pg_conn, "insert into j20111988(je, uid) values('$notes', $uid)");
+   $result = $stmt->execute();
    if(!$result) {
         echo "Apologies. Failed to add";
         } else {
