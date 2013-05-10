@@ -43,22 +43,19 @@ alert("update:"+edic2);
 function del(id){
 alert('Gonna delete: '+id);
 }
-
 </script>
 </head>
-<body>
+<body onload="loadentries()">
 <span style="font-style:normal;font-weight:bold;font-size:16px"><?php print("$usern"); ?></span>
 <hr>
-<form method="post" action="add.php">
-<textarea rows="5" cols="36" name="notes" placeholder="Add your notes"></textarea><br>
-<input type="submit" value="Add" />
+<form>
+<textarea id="journalnotes" rows="5" cols="36" name="notes" placeholder="Add your notes"></textarea><br>
+<input type="submit" value="Add" onclick="addentry()"/>
 <a href="logout.php">Logout</a>
 </form>
 <hr>
+<div id="notifications"></div>
 <h4>Recently...</h4>
 <div id="entries"></div>
-<script type="text/javascript">
-loadentries();
-</script>
 </body>
 </html>

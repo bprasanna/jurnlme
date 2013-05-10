@@ -127,23 +127,17 @@ function authenticate(){
 
 function addentry(){
     var xmlHttpSK = GetXmlHttpObject();
-    var url = "/lrgconversion/StatusGetter";
-    var lrgs = document.getElementById("lrglist").value;
-    var postby = document.getElementById("updated_by").value;
+    var url = "add.php";
+    var notes = document.getElementById("journalnotes").value;
     
 
     //Evaluate the values
-    if(trim12(lrgs)===''){
+    if(trim12(notes)===''){
     	document.getElementById("notifications").innerHTML = "Please add list of lrgs";
-    	document.getElementById("lrglist").focus();
+    	document.getElementById("journalnotes").focus();
     	return false;    	
     }
     
-    if(trim12(postby)===''){
-    	document.getElementById("notifications").innerHTML = "Please enter your GUID";
-    	document.getElementById("updated_by").focus();
-    	return false;
-    }
 
     //Post the data
     if(xmlHttpSK != null){
@@ -166,8 +160,8 @@ function addentry(){
     	};
     	xmlHttpSK.open("POST",url,true);
     	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
-    	xmlHttpSK.setRequestHeader("Content-length", lrgs.length+postby.length);
-    	xmlHttpSK.send("lrglist="+encodeURIComponent(lrgs)+" &updated_by="+encodeURIComponent(postby));
+    	xmlHttpSK.setRequestHeader("Content-length", notes.length);
+    	xmlHttpSK.send("notes="+encodeURIComponent(notes));
         return true;
     } else {
     	alert('Your browser doesn\'t support AJAX');

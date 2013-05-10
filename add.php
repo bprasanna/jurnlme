@@ -25,7 +25,11 @@ if (!pg_num_rows($result)) {
 if ($uid != 0) {
    $notes = $_POST["notes"]; 
    $result = pg_query($pg_conn, "insert into j20111988(je, uid) values('$notes', $uid)");
-   header('Location: http://murmuring-inlet-9551.herokuapp.com/home.php');
+   if(!$result) {
+        echo "Apologies. Failed to add";
+        } else {
+        echo "Sucessfully added";
+        }
 } 
 
 pg_close($pg_conn);
