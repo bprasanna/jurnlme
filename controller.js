@@ -31,9 +31,9 @@ function trim12(stri) {
 
 function loadentries(){
     var xmlHttpSK = GetXmlHttpObject();
-    var url = "entries.php?request=load";
+    var url = "load.php";
     //Clear the content page
-    document.getElementById("content").innerHTML = "Loading lrgs...";
+    document.getElementById("entries").innerHTML = "Loading your journal entries...";
 
     if(xmlHttpSK != null){
     	xmlHttpSK.onreadystatechange=function(){
@@ -42,18 +42,17 @@ function loadentries(){
     			if(xmlHttpSK.status == 200){
     				res = xmlHttpSK.responseText;
     				if(res!=null){
-                        document.getElementById("content").innerHTML = res;
-                        initializeDataTable();
+                        document.getElementById("entries").innerHTML = res;
     				} else {
     					alert("Error while retrieving data. Please try again.");
-    					document.getElementById("content").innerHTML="&nbsp";
+    					document.getElementById("entries").innerHTML="&nbsp";
     				}
     			} else if (xmlHttpSK.status == 404){
     				alert("Request URL does not exist");
-    				document.getElementById("content").innerHTML="&nbsp";
+    				document.getElementById("entries").innerHTML="&nbsp";
     			} else {
     				alert("Error: status code is (2):" + xmlHttpSK.status);	
-    				document.getElementById("content").innerHTML="&nbsp";
+    				document.getElementById("entries").innerHTML="&nbsp";
     			}
     		}
     	};
@@ -169,6 +168,53 @@ function addentry(){
     	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
     	xmlHttpSK.setRequestHeader("Content-length", lrgs.length+postby.length);
     	xmlHttpSK.send("lrglist="+encodeURIComponent(lrgs)+" &updated_by="+encodeURIComponent(postby));
+        return true;
+    } else {
+    	alert('Your browser doesn\'t support AJAX');
+    	return;		
+    }
+}
+
+function updateentry(id,entry){
+    var xmlHttpSK = GetXmlHttpObject();
+    var url = "upd.php";
+    
+
+    //Evaluate the values
+    if(trim12(id)===''){
+    	document.getElementById("notifications").innerHTML = "id cant be empty";
+    	return false;    	
+    }
+    
+    if(trim12(entry)===''){
+    	document.getElementById("notifications").innerHTML = "Cant post empty entry";
+    	document.getElementById("updated_by").focus();
+    	return false;
+    }
+
+    //Post the data
+    if(xmlHttpSK != null){
+    	xmlHttpSK.onreadystatechange=function(){
+    		if (xmlHttpSK.readyState == 4)
+    		{ 
+    			if(xmlHttpSK.status == 200){
+    				res = xmlHttpSK.responseText;
+    				if(res!=null){
+                        document.getElementById("notifications").innerHTML = res;
+    				} else {
+    					alert("Error while sending data. Please try again.");
+    				}
+    			} else if (xmlHttpSK.status == 404){
+    				alert("Request URL does not exist");
+    			} else {
+    				alert("Error: status code is (2):" + xmlHttpSK.status);	
+    			}
+    		}
+    	};
+    	xmlHttpSK.open("POST",url,true);
+    	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+    	xmlHttpSK.setRequestHeader("Content-length", id.length+entry.length);
+    	xmlHttpSK.send("jid="+encodeURIComponent(id)+" &jentry="+encodeURIComponent(entry));
         return true;
     } else {
     	alert('Your browser doesn\'t support AJAX');
