@@ -50,7 +50,7 @@ alert('Gonna delete: '+id);
 <hr>
 <form>
 <textarea id="journalnotes" rows="5" cols="36" name="notes" placeholder="Add your notes"></textarea><br>
-<input type="submit" value="Add" onclick="addentry()"/>
+<input type="button" value="Add" onclick="addentry()"/>
 <a href="logout.php">Logout</a>
 </form>
 <hr>
