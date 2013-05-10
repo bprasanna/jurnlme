@@ -49,7 +49,7 @@ alert('Gonna delete: '+id);
 <span style="font-style:normal;font-weight:bold;font-size:16px"><?php print("$usern"); ?></span>
 <hr>
 <form method="post" action="add.php">
-<textarea rows="5" cols="42" name="notes" placeholder="Add your notes"></textarea><br>
+<textarea rows="5" cols="36" name="notes" placeholder="Add your notes"></textarea><br>
 <input type="submit" value="Add" />
 <a href="logout.php">Logout</a>
 <hr>
