@@ -133,7 +133,7 @@ function addentry(){
 
     //Evaluate the values
     if(trim12(notes)===''){
-    	document.getElementById("notifications").innerHTML = "Please add list of lrgs";
+    	document.getElementById("notifications").innerHTML = "Please add some notes";
     	document.getElementById("journalnotes").focus();
     	return false;    	
     }
@@ -148,6 +148,7 @@ function addentry(){
     				res = xmlHttpSK.responseText;
     				if(res!=null){
                         document.getElementById("notifications").innerHTML = res;
+                        loadentries();
     				} else {
     					alert("Error while sending data. Please try again.");
     				}
