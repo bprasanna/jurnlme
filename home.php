@@ -19,7 +19,7 @@ border-color:gray;
 margin-top:5px;
 margin-right:5px;
 margin-left:5px;
-margin-bottom:10px;
+margin-bottom:15px;
 padding:5px;
 overflow:hidden;
 }

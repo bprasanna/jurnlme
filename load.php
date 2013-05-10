@@ -26,9 +26,9 @@ if (!pg_num_rows($result)) {
    while ($row = pg_fetch_row($result)) { 
          if ($row[2] != $pd){
             $pd = $row[2];
-            $out = $out."<b>$pd</b><br>";
+            $out = $out."&nbsp;<b>$pd</b><br>";
          }
-         $out = $out." <span style=\"color:gray\">$row[3]</span>";
+         $out = $out."&nbsp;<span style=\"color:gray\">$row[3]</span>";
          $out = $out. "<section onclick=\"onf(this.id)\" id=$row[0] contenteditable=true onblur=\"ono(this.id)\">$row[1] </section>"; 
    }
    $out = $out."</article>";
