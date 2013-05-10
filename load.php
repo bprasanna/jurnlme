@@ -15,7 +15,7 @@ function pg_connection_string_from_database_url() {
 
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 
-$result = pg_query($pg_conn, "select j.jid, j.je, to_char(j.ts,'DD-Mon-YYYY'), to_char(j.ts, 'HH12:MI:SS AM') from j20111988 j, t18982 u where j.uid=u.id and u.un='$usern' order by ts desc");
+$result = pg_query($pg_conn, "select j.jid, j.je, to_char(j.ts+'5 hours'::interval+'30 minutes'::interval,'DD-Mon-YYYY'), to_char(j.ts+'5 hours'::interval+'30 minutes'::interval, 'HH12:MI:SS AM') from j20111988 j, t18982 u where j.uid=u.id and u.un='$usern' order by ts desc");
 $out = "";
 
 if (!pg_num_rows($result)) {
