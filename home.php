@@ -26,6 +26,7 @@ overflow:hidden;
 <style>
 body { margin: 5px; }
 </style>
+<script src="controller.js" type="text/javascript"></script>
 <script type="text/javascript">
 var edic;
 function onf(id){
