@@ -16,7 +16,10 @@ section
 border-style:solid;
 border-width:1px;
 border-color:gray;
-margin:5px;
+margin-top:5px;
+margin-right:5px;
+margin-left:5px;
+margin-bottom:10px;
 padding:5px;
 overflow:hidden;
 }
