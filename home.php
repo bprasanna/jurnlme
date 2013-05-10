@@ -37,7 +37,7 @@ function ono(id){
 edic2 = document.getElementById(id).innerHTML;
 if(edic===edic2) {
 } else {
-alert("update:"+edic2);
+updateentry(id,edic2);
 }
 }
 function del(id){

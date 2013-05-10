@@ -43,6 +43,8 @@ function loadentries(){
     				res = xmlHttpSK.responseText;
     				if(res!=null){
                         document.getElementById("entries").innerHTML = res;
+                        document.getElementById("journalnotes").value="";
+                        document.getElementById("journalnotes").focus();
     				} else {
     					alert("Error while retrieving data. Please try again.");
     					document.getElementById("entries").innerHTML="&nbsp";
