@@ -20,9 +20,9 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 $result = pg_query($pg_conn, "update j20111988 set je='$jentry' where jid="$jid);
 
 if (!$result) {
-  print("failed");
+   print("Apologies. Failed to update.");
 } else {
-   print ("success");
+   print ("Updated successfully.");
 }
 
 pg_close($pg_conn);

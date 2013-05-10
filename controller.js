@@ -161,7 +161,6 @@ function addentry(){
     	};
     	xmlHttpSK.open("POST",url,true);
     	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
-    	xmlHttpSK.setRequestHeader("Content-length", notes.length);
     	xmlHttpSK.send("notes="+encodeURIComponent(notes));
         return true;
     } else {
@@ -208,7 +207,6 @@ function updateentry(id,entry){
     	};
     	xmlHttpSK.open("POST",url,true);
     	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
-    	xmlHttpSK.setRequestHeader("Content-length", id.length+entry.length);
     	xmlHttpSK.send("jid="+encodeURIComponent(id)+" &jentry="+encodeURIComponent(entry));
         return true;
     } else {
