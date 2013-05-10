@@ -16,7 +16,7 @@ section
 border-style:solid;
 border-width:1px;
 border-color:gray;
-margin-top:5px;
+margin-top:2px;
 margin-right:5px;
 margin-left:5px;
 margin-bottom:15px;
