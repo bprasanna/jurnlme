@@ -8,15 +8,16 @@
 <style>
 body { margin: 5px; }
 </style>
+<script src="controller.js" type="text/javascript"></script>
 </head>
 <body>
 <span style="font-style:normal;font-weight:bold;font-size:16px">Register</span>
 <hr>
-<form method="post" action="reg.php">
-<input type="text" name="username" placeholder="Username" /><br>
-<input type="password" name="password" placeholder="Password" /><br>
-<input type="text" name="email" placeholder="Email" /><br>
-<input type="submit" value="Register" />
+<form>
+<input type="text" id="username" name="username" placeholder="Username" /><br>
+<input type="password" id="password" name="password" placeholder="Password" /><br>
+<input type="text" id="email" name="email" placeholder="Email" /><br>
+<input type="button" value="Register" onclick="registeruser()"/>
 <a href="index.php">Login</a>
 </form>
 </body>

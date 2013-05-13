@@ -216,3 +216,49 @@ function updateentry(id,entry){
     	return;		
     }
 }
+
+function registeruser(){
+    var xmlHttpSK = GetXmlHttpObject();
+    var url = "reg.php";
+    
+
+    //Evaluate the values
+    if(trim12(id)===''){
+    	document.getElementById("notifications").innerHTML = "id cant be empty";
+    	return false;    	
+    }
+    
+    if(trim12(entry)===''){
+    	document.getElementById("notifications").innerHTML = "Cant post empty entry";
+    	document.getElementById("updated_by").focus();
+    	return false;
+    }
+
+    //Post the data
+    if(xmlHttpSK != null){
+    	xmlHttpSK.onreadystatechange=function(){
+    		if (xmlHttpSK.readyState == 4)
+    		{ 
+    			if(xmlHttpSK.status == 200){
+    				res = xmlHttpSK.responseText;
+    				if(res!=null){
+                        document.getElementById("notifications").innerHTML = res;
+    				} else {
+    					alert("Error while sending data. Please try again.");
+    				}
+    			} else if (xmlHttpSK.status == 404){
+    				alert("Request URL does not exist");
+    			} else {
+    				alert("Error: status code is (2):" + xmlHttpSK.status);	
+    			}
+    		}
+    	};
+    	xmlHttpSK.open("POST",url,true);
+    	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+    	xmlHttpSK.send("jid="+encodeURIComponent(id)+" &jentry="+encodeURIComponent(entry));
+        return true;
+    } else {
+    	alert('Your browser doesn\'t support AJAX');
+    	return;		
+    }
+}
