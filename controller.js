@@ -220,17 +220,27 @@ function updateentry(id,entry){
 function registeruser(){
     var xmlHttpSK = GetXmlHttpObject();
     var url = "reg.php";
+    username = document.getElementById("username").value;
+    password = document.getElementById("password").value;
+    email = document.getElementById("email").value;
     
 
     //Evaluate the values
-    if(trim12(id)===''){
-    	document.getElementById("notifications").innerHTML = "id cant be empty";
+    if(trim12(username)===''){
+    	document.getElementById("notifications").innerHTML = "Please enter user name";
+        document.getElementById("username").focus();
     	return false;    	
     }
     
-    if(trim12(entry)===''){
-    	document.getElementById("notifications").innerHTML = "Cant post empty entry";
-    	document.getElementById("updated_by").focus();
+    if(trim12(password)===''){
+    	document.getElementById("notifications").innerHTML = "Please enter password";
+    	document.getElementById("password").focus();
+    	return false;
+    }
+
+    if(trim12(email)===''){
+    	document.getElementById("notifications").innerHTML = "Please enter your email id";
+    	document.getElementById("email").focus();
     	return false;
     }
 
@@ -255,7 +265,7 @@ function registeruser(){
     	};
     	xmlHttpSK.open("POST",url,true);
     	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
-    	xmlHttpSK.send("jid="+encodeURIComponent(id)+" &jentry="+encodeURIComponent(entry));
+    	xmlHttpSK.send("username="+encodeURIComponent(username)+" &password="+encodeURIComponent(password)+"&email="+encodeURIComponent(email));
         return true;
     } else {
     	alert('Your browser doesn\'t support AJAX');

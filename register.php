@@ -20,5 +20,6 @@ body { margin: 5px; }
 <input type="button" value="Register" onclick="registeruser()"/>
 <a href="index.php">Login</a>
 </form>
+<div id="notifications"></div>
 </body>
 </html>
