@@ -28,14 +28,14 @@ if ($uid != 0) {
    if(!$result) {
         echo "Apologies. Failed to add";
         } else {
-            $result = pg_query($pg_conn, "select jid, je, to_char(ts+'5 hours'::interval+'30 minutes'::interval,'DD-Mon-YYYY'), to_char(ts+'5 hours'::interval+'30 minutes'::interval, 'HH12:MI:SS AM') from j20111988 where uid='$uid' order by ts desc limit 2");
-            if (!pg_num_rows($result)) {
-            $pd = "";
-            if(pg_num_rows($result)==1){
-                $out = $out."<article>";
-            }
-            $count = 0;
-            while ($row = pg_fetch_row($result)) { 
+            $res2 = pg_query($pg_conn, "select jid, je, to_char(ts+'5 hours'::interval+'30 minutes'::interval,'DD-Mon-YYYY'), to_char(ts+'5 hours'::interval+'30 minutes'::interval, 'HH12:MI:SS AM') from j20111988 where uid='$uid' order by ts desc limit 2");
+            if (!pg_num_rows($res2)) {
+               $pd = "";
+               if (pg_num_rows($res2)==1){
+                   $out = $out."<article>";
+               }
+               $count = 0;
+               while ($row = pg_fetch_row($res2)) { 
                   if ($count == 0) {
                      $out = $out."&nbsp;<span style=\"color:gray\">$row[3]</span>";
                      $out = $out. "<section onclick=\"onf(this.id)\" id=$row[0] contenteditable=true onblur=\"ono(this.id)\">$row[1] </section>"; 
@@ -46,7 +46,7 @@ if ($uid != 0) {
                   $pd = $row[2];
                   $count = 1;
             }
-            if(pg_num_rows($result)==1){
+            if(pg_num_rows($res2)==1){
                 $out = $out."</article>";
             }
             echo $out;
