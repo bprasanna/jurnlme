@@ -18,7 +18,7 @@ $pg_conn = pg_connect(pg_connection_string_from_database_url());
 $result = pg_query($pg_conn, "select id from t18982 where un='$un'");
 
 if (!pg_num_rows($result)) {
-  print("Invalid Credentials. Please <a href=\"index.php\">Login</a> again");
+    header('Location: http://murmuring-inlet-9551.herokuapp.com/index.php');
 } else {
   while ($row = pg_fetch_row($result)) { $uid = $row[0]; }
 }
@@ -27,7 +27,7 @@ if ($uid != 0) {
    $notes = pg_escape_string($_POST["notes"]); 
    $result = pg_query($pg_conn, "insert into j20111988(je, uid) values('$notes', $uid)");
    if(!$result) {
-        echo "Apologies. Failed to add";
+        echo "failed";
         } else {
             $res2 = pg_query($pg_conn, "select jid, je, to_char(ts+'5 hours'::interval+'30 minutes'::interval,'DD-Mon-YYYY'), to_char(ts+'5 hours'::interval+'30 minutes'::interval, 'HH12:MI:SS AM') from j20111988 where uid='$uid' order by ts desc limit 2");
             if (pg_num_rows($res2)) {
