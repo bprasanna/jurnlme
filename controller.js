@@ -149,7 +149,12 @@ function addentry(){
     			if(xmlHttpSK.status == 200){
     				res = xmlHttpSK.responseText;
     				if(res!=null){
-                        document.getElementById("notifications").innerHTML = res;
+                        if (res === 'failed') {
+                           document.getElementById("notifications").innerHTML = "Apologies. Failed to add entry. Please try again";
+                        } else {
+                            article = document.getElementById("allentries");
+                            article.appendChild(res);
+                        }
     				} else {
     					alert("Error while sending data. Please try again.");
     				}

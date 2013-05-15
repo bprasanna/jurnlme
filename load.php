@@ -22,7 +22,7 @@ if (!pg_num_rows($result)) {
   $out = "No notes added yet.<br>Feel free to add one anytime.";
 } else {
    $pd = "";
-   $out = $out."<article>";
+   $out = $out."<article id=\"allentries\">";
    while ($row = pg_fetch_row($result)) { 
          if ($row[2] != $pd){
             $pd = $row[2];
