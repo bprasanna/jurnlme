@@ -150,7 +150,6 @@ function addentry(){
     				res = xmlHttpSK.responseText;
     				if(res!=null){
                         document.getElementById("notifications").innerHTML = res;
-                        loadentries();
     				} else {
     					alert("Error while sending data. Please try again.");
     				}
