@@ -156,6 +156,8 @@ function addentry(){
                             article.innerHTML = res;
                             var diven = document.getElementById('entries');
                             diven.insertBefore(article,diven.firstChild);
+                            document.getElementById("journalnotes").value="";
+                            document.getElementById("journalnotes").focus();
                         }
     				} else {
     					alert("Error while sending data. Please try again.");
