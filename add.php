@@ -32,9 +32,6 @@ if ($uid != 0) {
             $res2 = pg_query($pg_conn, "select jid, je, to_char(ts+'5 hours'::interval+'30 minutes'::interval,'DD-Mon-YYYY'), to_char(ts+'5 hours'::interval+'30 minutes'::interval, 'HH12:MI:SS AM') from j20111988 where uid='$uid' order by ts desc limit 2");
             if (pg_num_rows($res2)) {
                $pd = "";
-               if (pg_num_rows($res2)==1){
-                   $out = $out."<article>";
-               }
                $count = 0;
                while ($row = pg_fetch_row($res2)) { 
                   if ($count == 0) {
@@ -46,9 +43,6 @@ if ($uid != 0) {
                   }
                   $pd = $row[2];
                   $count = 1;
-            }
-            if(pg_num_rows($res2)==1){
-                $out = $out."</article>";
             }
             echo $out;
           }

@@ -152,10 +152,10 @@ function addentry(){
                         if (res === 'failed') {
                            document.getElementById("notifications").innerHTML = "Apologies. Failed to add entry. Please try again";
                         } else {
-                            var section = document.createElement('section');
-                            section.innerHTML = res;
-                            var article = document.getElementById("allentries");
-                            article.appendChild(section);
+                            var article = document.createElement('article');
+                            article.innerHTML = res;
+                            var diven = document.getElementById('entries');
+                            diven.appendChild(section);
                         }
     				} else {
     					alert("Error while sending data. Please try again.");

@@ -22,16 +22,16 @@ if (!pg_num_rows($result)) {
   $out = "No notes added yet.<br>Feel free to add one anytime.";
 } else {
    $pd = "";
-   $out = $out."<article id=\"allentries\">";
    while ($row = pg_fetch_row($result)) { 
+         $out = $out."<article>";
          if ($row[2] != $pd){
             $pd = $row[2];
             $out = $out."&nbsp;<b>$pd</b><br>";
          }
          $out = $out."&nbsp;<span style=\"color:gray\">$row[3]</span>";
          $out = $out. "<section onclick=\"onf(this.id)\" id=$row[0] contenteditable=true onblur=\"ono(this.id)\">$row[1] </section>"; 
+         $out = $out."</article>";
    }
-   $out = $out."</article>";
 }
 echo $out;
 
