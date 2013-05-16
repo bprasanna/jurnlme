@@ -155,7 +155,7 @@ function addentry(){
                             var article = document.createElement('article');
                             article.innerHTML = res;
                             var diven = document.getElementById('entries');
-                            diven.appendChild(section);
+                            diven.appendChild(article);
                         }
     				} else {
     					alert("Error while sending data. Please try again.");
