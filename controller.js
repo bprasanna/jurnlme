@@ -283,7 +283,7 @@ function registeruser(){
 
 function deleteentry(child, id){
     var xmlHttpSK = GetXmlHttpObject();
-    var url = "upd.php";
+    var url = "del.php";
     
 
     //Evaluate the values
