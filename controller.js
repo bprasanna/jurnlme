@@ -286,13 +286,6 @@ function deleteentry(child, id){
     var url = "del.php";
     
 
-    //Evaluate the values
-    if(trim12(id)===''){
-    	document.getElementById("notifications").innerHTML = "id cant be empty";
-    	return false;    	
-    }
-    
-
     //Post the data
     if(xmlHttpSK != null){
     	xmlHttpSK.onreadystatechange=function(){
@@ -303,7 +296,6 @@ function deleteentry(child, id){
     				if(res!=null){
                         if (res==='success') {
                            var diven = document.getElementById('entries');
-                           alert(child.parentNode);
                            diven.removeChild(child.parentNode);
                         } else {
     	                   document.getElementById("notifications").innerHTML = "Error Occurred. Please try again.";
