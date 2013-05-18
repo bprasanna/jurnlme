@@ -312,7 +312,7 @@ function deleteentry(child, id){
     	};
     	xmlHttpSK.open("POST",url,true);
     	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
-    	xmlHttpSK.send("jid="+encodeURIComponent(id)+" &jentry="+encodeURIComponent(entry));
+    	xmlHttpSK.send("jid="+encodeURIComponent(id));
         return true;
     } else {
     	alert('Your browser doesn\'t support AJAX');
