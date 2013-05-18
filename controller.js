@@ -192,7 +192,6 @@ function updateentry(id,entry){
     
     if(trim12(entry)===''){
     	document.getElementById("notifications").innerHTML = "Cant post empty entry";
-    	document.getElementById("updated_by").focus();
     	return false;
     }
 
@@ -274,6 +273,53 @@ function registeruser(){
     	xmlHttpSK.open("POST",url,true);
     	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
     	xmlHttpSK.send("username="+encodeURIComponent(username)+" &password="+encodeURIComponent(password)+"&email="+encodeURIComponent(email));
+        return true;
+    } else {
+    	alert('Your browser doesn\'t support AJAX');
+    	return;		
+    }
+}
+
+
+function deleteentry(child, id){
+    var xmlHttpSK = GetXmlHttpObject();
+    var url = "upd.php";
+    
+
+    //Evaluate the values
+    if(trim12(id)===''){
+    	document.getElementById("notifications").innerHTML = "id cant be empty";
+    	return false;    	
+    }
+    
+
+    //Post the data
+    if(xmlHttpSK != null){
+    	xmlHttpSK.onreadystatechange=function(){
+    		if (xmlHttpSK.readyState == 4)
+    		{ 
+    			if(xmlHttpSK.status == 200){
+    				res = xmlHttpSK.responseText;
+    				if(res!=null){
+                        if (res==='success') {
+                           var diven = document.getElementById('entries');
+                           diven.removeChild(child.parentNode);
+                        } else {
+    	                   document.getElementById("notifications").innerHTML = "Error Occurred. Please try again.";
+                        }
+    				} else {
+    					alert("Error while sending data. Please try again.");
+    				}
+    			} else if (xmlHttpSK.status == 404){
+    				alert("Request URL does not exist");
+    			} else {
+    				alert("Error: status code is (2):" + xmlHttpSK.status);	
+    			}
+    		}
+    	};
+    	xmlHttpSK.open("POST",url,true);
+    	xmlHttpSK.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+    	xmlHttpSK.send("jid="+encodeURIComponent(id)+" &jentry="+encodeURIComponent(entry));
         return true;
     } else {
     	alert('Your browser doesn\'t support AJAX');

@@ -35,7 +35,7 @@ if ($uid != 0) {
                $count = 0;
                while ($row = pg_fetch_row($res2)) { 
                   if ($count == 0) {
-                     $out = $out."&nbsp;<span style=\"color:gray\">$row[3]</span>";
+                     $out = $out."&nbsp;<span style=\"color:gray\">$row[3]</span><a href=\"#\" onclick=\"deleteentry(this,$row[0])\">x</a>";
                      $out = $out. "<section onclick=\"onf(this.id)\" id=$row[0] contenteditable=true onblur=\"ono(this.id)\">$row[1] </section>"; 
                   }
                   if ($row[2] != $pd && $count == 1){
