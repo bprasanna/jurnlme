@@ -278,7 +278,7 @@ function registeruser(){
     	alert('Your browser doesn\'t support AJAX');
     	return;		
     }
-}
+
 
 
 function deleteentry(child, id){
@@ -303,6 +303,7 @@ function deleteentry(child, id){
     				if(res!=null){
                         if (res==='success') {
                            var diven = document.getElementById('entries');
+                           alert(child.parentNode);
                            diven.removeChild(child.parentNode);
                         } else {
     	                   document.getElementById("notifications").innerHTML = "Error Occurred. Please try again.";
