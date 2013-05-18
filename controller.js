@@ -278,7 +278,7 @@ function registeruser(){
     	alert('Your browser doesn\'t support AJAX');
     	return;		
     }
-
+}
 
 
 function deleteentry(child, id){
