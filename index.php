@@ -20,6 +20,10 @@
 <input type="submit" value="Login" onClick="return authenticate()"/>
 <div id="notifications"></div>
 <a href="register.php">Register</a>
+<p color="#333333">
+Jurnl.Me is a light weight web application which is aimed to be a anytime jouranl notes taker.
+
+</p>
 <script src="controller.js"></script>
 </body>
 </html>
