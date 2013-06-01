@@ -22,13 +22,11 @@ margin-left:5px;
 margin-bottom:15px;
 padding:5px;
 overflow:hidden;
+background-color:white;
 }
 </style>
 <link rel="stylesheet" type="text/css" media="all" href="decor.css" />
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
-<style>
-body { margin: 5px; }
-</style>
 <script src="controller.js" type="text/javascript"></script>
 <script type="text/javascript">
 var edic;

@@ -11,9 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 <link rel="stylesheet" type="text/css" media="all" href="decor.css" />
 <link rel="stylesheet" type="text/css" media="only screen and (max-width: 800px)" href="mob.css">
-<style>
-body { margin: 5px; }
-</style>
 </head>
 <body>
 <span style="font-style:normal;font-weight:bold;font-size:16px">Login</span>
