@@ -22,7 +22,7 @@
 <a href="register.php">Register</a>
 <p>
 <span style="color:#444444">
-Jurnl.Me </span><br><span style="color:#777777">is a light weight web application which is aimed to be </span><span style="color:#444444">a anytime journal notes taker</span>.
+Jurnl.Me </span><br><span style="color:#777777">is a light weight web application which is aimed to be </span><span style="color:#444444">an anytime journal notes taker</span>.
 
 </p>
 <script src="controller.js"></script>
